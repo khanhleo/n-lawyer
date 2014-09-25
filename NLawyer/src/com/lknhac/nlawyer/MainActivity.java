@@ -1,16 +1,15 @@
 package com.lknhac.nlawyer;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends Activity {
+public class MainActivity extends DrawerLayoutActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		//setContentView(R.layout.activity_main);
 	}
 
 	@Override
@@ -30,5 +29,11 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	protected void setupView() {
+		// TODO Auto-generated method stub
+		setContentView(R.layout.activity_main);
 	}
 }
