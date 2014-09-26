@@ -11,4 +11,22 @@
     <string name="drawer_open">Open navigation drawer</string>
     <!-- Description of the icon that closes the navigation drawer, used by accessibility. -->
     <string name="drawer_close">Close navigation drawer</string>
+    
+    <!-- List title -->
+    <string name="t_1">1-Nhiệm vụ và hiệu lực của BLDS</string>
+    <string name="t_2">2-Những nguyên tắc cơ bản</string>
+    <string name="t_3">3- Cá nhân</string>
+    <string name="t_4">4-Pháp nhân</string>
+    <string name="t_5">5-Hộ gia đình, tổ hợp tác</string>
+    <string name="t_6">6- Giao dịch dân sự</string> 
+    <string name="t_7">7- Đại diện</string>
+    <string name="t_8">8- Thời hạn</string>
+    <string name="t_9">9 - Thời hiệu</string>
+    <string name="t_10">10- Quy định chung về tài sản và quyền sở hữu</string>
+    <string name="t_11">11- Các loại tài sản</string>
+    <string name="t_12">12- Nội dung quyền sở hữu</string>
+    <string name="t_13">13- Các hình thức sở hữu</string>
+    <string name="t_14">14- Xác lập, chấm dứt quyền sở hữu</string>
+    <string name="t_15">15- Bảo vệ quyền sở hữu</string>
+    <string name="t_16">16- Những quy định khác về quyền sở hữu</string>
 </resources>

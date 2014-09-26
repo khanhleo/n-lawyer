@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DrawerLayoutActivity"
+            android:name=".ContentActivity"
             android:label="@string/app_name" >
              
         </activity>

@@ -37,7 +37,7 @@ import android.widget.TextView;
 public class DrawerLayoutActivity extends Activity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawer;
-    private TextView mContent;
+   // private TextView mContent;
 
     private ActionBarHelper mActionBar;
 
@@ -52,7 +52,7 @@ public class DrawerLayoutActivity extends Activity {
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawer = (ListView) findViewById(R.id.start_drawer);
-        mContent = (TextView) findViewById(R.id.content_text);
+       // mContent = (TextView) findViewById(R.id.content_text);
 
         mDrawerLayout.setDrawerListener(new DemoDrawerListener());
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
@@ -110,7 +110,7 @@ public class DrawerLayoutActivity extends Activity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            mContent.setText(Shakespeare.DIALOGUE[position]);
+          //  mContent.setText(Shakespeare.DIALOGUE[position]);
             mActionBar.setTitle(Shakespeare.TITLES[position]);
             mDrawerLayout.closeDrawer(mDrawer);
         }
