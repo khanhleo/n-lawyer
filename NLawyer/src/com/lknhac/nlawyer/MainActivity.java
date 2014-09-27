@@ -49,9 +49,15 @@ public class MainActivity extends DrawerLayoutActivity {
 	        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 	          Toast.makeText(getApplicationContext(), TITLES[position], Toast.LENGTH_SHORT).show();
 	          String strContents = "t_"+String.valueOf(position+1)+".html";
+	          String strTitle = "";
+	          if(TITLES[position].length()>15){
+	        	  strTitle = TITLES[position].substring(0, 15) +"...";
+	          }
 	          Bundle bundle = new Bundle();
 				bundle.putString(Const.CONTENTS,
 						strContents);
+				bundle.putString(Const.TITLE,
+						strTitle);
 				// After all data has been entered and calculated, go to new
 				// page for results
 				Intent myIntent = new Intent();

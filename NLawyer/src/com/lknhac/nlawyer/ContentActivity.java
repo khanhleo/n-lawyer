@@ -22,6 +22,7 @@ public class ContentActivity extends DrawerLayoutActivity {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			url = "file:///android_asset/" + extras.getString(Const.CONTENTS);
+			setTitle(extras.getString(Const.TITLE));
 		} else {
 			url = "file:///android_asset/1-nhiemvu.html";
 		}
@@ -29,6 +30,8 @@ public class ContentActivity extends DrawerLayoutActivity {
 		mWebView.getSettings().setJavaScriptEnabled(true);
 		mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 		mWebView.loadUrl(url);
+		
+		
 	}
 
 	// private class MyBrowser extends WebViewClient {
@@ -43,6 +46,6 @@ public class ContentActivity extends DrawerLayoutActivity {
 	protected void setupView() {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_content);
-
+		
 	}
 }

@@ -17,20 +17,28 @@
 
 package com.lknhac.nlawyer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.lknhac.nlawyer.data.Shakespeare;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -43,6 +51,10 @@ public class DrawerLayoutActivity extends Activity {
 
     private ActionBarDrawerToggle mDrawerToggle;
 
+    private MenuApdapter adapter;
+    
+    private List<String> listMenu;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +62,17 @@ public class DrawerLayoutActivity extends Activity {
         setupView();
       // setContentView(R.layout.drawer_layout);
 
+        // style for listview
+        
+       // final ListView listView = (ListView) findViewById(R.id.lvSummary);
+       
+        listMenu = new ArrayList<String>();
+        listMenu.add("Setting");
+        listMenu.add("About");
+        listMenu.add("Exit");
+        
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawer = (ListView) findViewById(R.id.start_drawer);
+       
        // mContent = (TextView) findViewById(R.id.content_text);
 
         mDrawerLayout.setDrawerListener(new DemoDrawerListener());
@@ -61,9 +82,16 @@ public class DrawerLayoutActivity extends Activity {
         // accessibility is turned on. This is typically a simple description,
         // e.g. "Navigation".
         mDrawerLayout.setDrawerTitle(GravityCompat.START, getString(R.string.drawer_title));
+        
+        mDrawer = (ListView) findViewById(R.id.start_drawer);
+		adapter = new MenuApdapter(this);
+		mDrawer.setAdapter(adapter);
+		adapter.setListContact(listMenu);
+		adapter.notifyDataSetChanged();
+		//Utils.setListViewHeightBasedOnChildren(mDrawer);
 
-        mDrawer.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                Shakespeare.TITLES));
+//        mDrawer.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
+//                Shakespeare.TITLES));
         mDrawer.setOnItemClickListener(new DrawerItemClickListener());
 
         mActionBar = createActionBarHelper();
@@ -74,6 +102,60 @@ public class DrawerLayoutActivity extends Activity {
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
                 R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close);
     }
+    
+    private class MenuApdapter extends BaseAdapter {
+		private Context mContext;
+		private List<String> listMenu = new ArrayList<String>();
+
+		public MenuApdapter(Context c) {
+			mContext = c;
+		}
+
+		@Override
+		public String getItem(int position) {
+			return listMenu.get(position);
+		}
+
+		@Override
+		public int getCount() {
+			return listMenu.size();
+		}
+
+		public void setListContact(List<String> summary) {
+			List<String> result = new ArrayList<String>();
+			for (String item : summary) {
+				result.add(item);
+			}
+			listMenu = result;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			final String summaryItem = getItem(position);
+			final int check = position;
+			View v = convertView;
+			if (v == null) {
+				v = LayoutInflater.from(mContext).inflate(
+						R.layout.listview_summary_item, null);
+			}
+
+			TextView itemText = (TextView) v.findViewById(R.id.itemText);
+			ImageView itemIcon = (ImageView) v
+					.findViewById(R.id.itemImage);
+
+			itemText.setText(summaryItem);
+			itemIcon.setImageResource(R.drawable.alert_dialog_icon);
+			
+
+			return v;
+		}
+
+		@Override
+		public long getItemId(int paramInt) {
+			return 0;
+		}
+	}
+    
 	protected void setupView() {
 	}
 	
@@ -111,7 +193,7 @@ public class DrawerLayoutActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
           //  mContent.setText(Shakespeare.DIALOGUE[position]);
-            mActionBar.setTitle(Shakespeare.TITLES[position]);
+            mActionBar.setTitle(listMenu.get(position));
             mDrawerLayout.closeDrawer(mDrawer);
         }
     }
@@ -160,6 +242,9 @@ public class DrawerLayoutActivity extends Activity {
         }
     }
 
+    public void setTitle(String title){
+    	mActionBar.setTitle(title);
+    }
     /**
      * Stub action bar helper; this does nothing.
      */
