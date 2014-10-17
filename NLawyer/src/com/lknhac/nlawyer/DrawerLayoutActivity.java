@@ -26,6 +26,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -241,7 +242,7 @@ public class DrawerLayoutActivity extends Activity {
             return new ActionBarHelper();
         }
     }
-
+    public static String mStrTitle;
     public void setTitle(String title){
     	mActionBar.setTitle(title);
     }
@@ -271,7 +272,9 @@ public class DrawerLayoutActivity extends Activity {
         public void init() {
             mActionBar.setDisplayHomeAsUpEnabled(true);
             mActionBar.setHomeButtonEnabled(true);
-            mTitle = mDrawerTitle = getTitle();
+            mTitle = mDrawerTitle = mStrTitle;
+            mActionBar.setTitle(mTitle);
+            mActionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.orange));
         }
 
         /**

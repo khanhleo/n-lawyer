@@ -12,21 +12,58 @@
     <!-- Description of the icon that closes the navigation drawer, used by accessibility. -->
     <string name="drawer_close">Close navigation drawer</string>
     
+    <!-- Section -->
+    <string name="sec_1">Phần 1-NHỮNG QUI ĐỊNH CHUNG</string>
+    <string name="sec_2">Phần 2-TÀI SẢN VÀ QUYỀN SỞ HỮU</string>
+    <string name="sec_3">Phần 3-NGHĨA VỤ DÂN SỰ VÀ HỢP ĐỒNG DÂN SỰ</string>
+    <string name="sec_4">Phần 4-THỪA KẾ</string>
+    <string name="sec_5">Phần 5-QUY ĐỊNH VỀ CHUYỂN QUYỀN SỬ DỤNG ĐẤT</string>
+    <string name="sec_6">Phần 6-QUYỀN SỞ HỮU TRÍ TUỆ VÀ CHUYỂN GIAO CÔNG NGHỆ</string>
+    <string name="sec_7">Phần 7-QUAN HỆ DÂN SỰ CÓ YẾU TỐ NƯỚC NGOÀI</string>
+    
     <!-- List title -->
-    <string name="t_1">1-Nhiệm vụ và hiệu lực của BLDS</string>
-    <string name="t_2">2-Những nguyên tắc cơ bản</string>
-    <string name="t_3">3- Cá nhân</string>
-    <string name="t_4">4-Pháp nhân</string>
-    <string name="t_5">5-Hộ gia đình, tổ hợp tác</string>
-    <string name="t_6">6- Giao dịch dân sự</string> 
-    <string name="t_7">7- Đại diện</string>
-    <string name="t_8">8- Thời hạn</string>
-    <string name="t_9">9 - Thời hiệu</string>
-    <string name="t_10">10- Quy định chung về tài sản và quyền sở hữu</string>
-    <string name="t_11">11- Các loại tài sản</string>
-    <string name="t_12">12- Nội dung quyền sở hữu</string>
-    <string name="t_13">13- Các hình thức sở hữu</string>
-    <string name="t_14">14- Xác lập, chấm dứt quyền sở hữu</string>
-    <string name="t_15">15- Bảo vệ quyền sở hữu</string>
-    <string name="t_16">16- Những quy định khác về quyền sở hữu</string>
+    <string name="t1_1">1-Nhiệm vụ và hiệu lực của BLDS</string>
+    <string name="t1_2">2-Những nguyên tắc cơ bản và căn cứ xác lập quyền, nghĩa vụ dân sự</string>
+    <string name="t1_3">3- Cá nhân</string>
+    <string name="t1_4">4-Pháp nhân</string>
+    <string name="t1_5">5-Hộ gia đình, tổ hợp tác</string>
+    <string name="t1_6">6- Giao dịch dân sự</string> 
+    <string name="t1_7">7- Đại diện</string>
+    <string name="t1_8">8- Thời hạn</string>
+    <string name="t1_9">9 - Thời hiệu</string>
+    
+    <string name="t2_10">10- Quy định chung về tài sản và quyền sở hữu</string>
+    <string name="t2_11">11- Các loại tài sản</string>
+    <string name="t2_12">12- Nội dung quyền sở hữu</string>
+    <string name="t2_13">13- Các hình thức sở hữu</string>
+    <string name="t2_14">14- Xác lập, chấm dứt quyền sở hữu</string>
+    <string name="t2_15">15- Bảo vệ quyền sở hữu</string>
+    <string name="t2_16">16- Những quy định khác về quyền sở hữu</string>
+    
+    <string name="t3_17">17-Những quy định chung</string>
+    <string name="t3_18">18-Hợp đồng dân sự thông dụng</string>
+    <string name="t3_19">19-Thực hiện công việc không có ủy quyền</string>
+    <string name="t3_20">20-Nghĩa vụ hoàn trả do chiếm hữu, sử dụng tài sản không có căn cứ pháp luật</string>
+    <string name="t3_21">21-Bồi thường thiệt hại ngoài hợp đồng</string>
+    
+    <string name="t4_22">22-Những quy định chung về thừa kế</string>
+    <string name="t4_23">23-Thừa kế theo di chúc</string>
+    <string name="t4_24">24-Thừa kế theo pháp luật</string>
+    <string name="t4_25">25-Thanh toán và phân chia di sản</string>
+    
+    <string name="t5_26">26-Những quy định chung về chuyển quyền sử dụng đất</string>
+    <string name="t5_27">27-Hợp đồng chuyển đổi quyền sử dụng đất</string>
+    <string name="t5_28">28-Hợp đồng chuyển nhượng quyền sử dụng đất</string>
+    <string name="t5_29">29-Hợp đồng thuê, thuê lại quyền sử dụng đất</string>
+    <string name="t5_30">30-Hợp đồng thế chấp quyền sử dụng đất</string>
+    <string name="t5_31">31-Hợp đồng tặng cho quyền sử dụng đất</string>
+    <string name="t5_32">32-Hợp đồng góp vốn bằng quyền sử dụng đất</string>
+    <string name="t5_33">33-Thừa kế quyền sử dụng đất</string>
+    
+    <string name="t6_34">34-Quyền tác giả và quyền liên quan</string>
+    <string name="t6_35">35-Quyền sở hữu công nghiệp và quyền đối với cây trồng</string>
+    <string name="t6_36">36-Chuyển giao công nghệ</string>
+    
+    <string name="t7_37">37-Quan hệ dân sự có yếu tố nước ngoài</string>
+    
 </resources>

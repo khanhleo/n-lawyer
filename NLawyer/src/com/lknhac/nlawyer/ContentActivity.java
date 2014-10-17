@@ -22,13 +22,15 @@ public class ContentActivity extends DrawerLayoutActivity {
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
 			url = "file:///android_asset/" + extras.getString(Const.CONTENTS);
-			setTitle(extras.getString(Const.TITLE));
 		} else {
-			url = "file:///android_asset/1-nhiemvu.html";
+			url = "file:///android_asset/t_1.html";
 		}
-		mWebView.getSettings().setLoadsImagesAutomatically(true);
+		//url = "http://game.24h.com.vn/game-hay-nhat/pikachu-phien-ban-moi-c131g597b15.html";
+		//url = "file:///android_asset/game/testgame.html";
 		mWebView.getSettings().setJavaScriptEnabled(true);
+		mWebView.getSettings().setLoadsImagesAutomatically(true);
 		mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+		mWebView.getSettings().setBuiltInZoomControls(true);
 		mWebView.loadUrl(url);
 		
 		
@@ -46,6 +48,9 @@ public class ContentActivity extends DrawerLayoutActivity {
 	protected void setupView() {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_content);
-		
+		Bundle extras = getIntent().getExtras();
+		if (extras != null) {
+			mStrTitle = extras.getString(Const.TITLE);
+		}
 	}
 }
