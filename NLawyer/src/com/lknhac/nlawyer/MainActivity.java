@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -11,8 +12,10 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.Toast;
 
 import com.lknhac.nlawyer.adapter.ExpandableListAdapter;
+import com.lknhac.nlawyer.util.Const;
 
 public class MainActivity extends DrawerLayoutActivity {
 
@@ -88,21 +91,21 @@ public class MainActivity extends DrawerLayoutActivity {
 			public boolean onChildClick(ExpandableListView parent, View v,
 					int groupPosition, int childPosition, long id) {
 				// TODO Auto-generated method stub
-				String mClass= String.valueOf(groupPosition + 1);
-				String mClassDetails = String.valueOf(groupPosition + 1) + "."
-						+ String.valueOf(childPosition+1);
+				//String mSection= String.valueOf(groupPosition + 1);
+				String mTitle = "t"+ String.valueOf(groupPosition + 1) + "_"
+						+ String.valueOf(childPosition+1)+".htm";
 				
-//				Bundle bundle = new Bundle();
-//				bundle.putString(Const.CLASS,
-//						mClass);
-//				bundle.putString(Const.CLASS_DETAILS,
-//						mClassDetails);
-//				// After all data has been entered and calculated, go to new
-//				// page for results
-//				Intent myIntent = new Intent();
-//				myIntent.putExtras(bundle);
-//				myIntent.setClass(getBaseContext(), ListDataActivity.class);
-//				startActivity(myIntent);
+				Bundle bundle = new Bundle();
+				bundle.putString(Const.TITLE,
+						mTitle);
+				// After all data has been entered and calculated, go to new
+				// page for results
+				Intent myIntent = new Intent();
+				myIntent.putExtras(bundle);
+				myIntent.setClass(getBaseContext(), ContentActivity.class);
+				startActivity(myIntent);
+				
+				Toast.makeText(getApplicationContext(), mTitle, Toast.LENGTH_SHORT).show();
 				// Add the bundle into myIntent for referencing variables
 				
 				return false;

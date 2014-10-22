@@ -21,9 +21,9 @@ public class ContentActivity extends DrawerLayoutActivity {
 		String url = "";
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			url = "file:///android_asset/" + extras.getString(Const.CONTENTS);
+			url = "file:///android_asset/" + extras.getString(Const.TITLE);
 		} else {
-			url = "file:///android_asset/t_1.html";
+			url = "file:///android_asset/t1_1.htm";
 		}
 		//url = "http://game.24h.com.vn/game-hay-nhat/pikachu-phien-ban-moi-c131g597b15.html";
 		//url = "file:///android_asset/game/testgame.html";
