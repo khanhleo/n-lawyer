@@ -94,10 +94,13 @@ public class MainActivity extends DrawerLayoutActivity {
 				//String mSection= String.valueOf(groupPosition + 1);
 				String mTitle = "t"+ String.valueOf(groupPosition + 1) + "_"
 						+ String.valueOf(childPosition+1)+".htm";
-				
+				//String mContents = listDataChild.get(key)
 				Bundle bundle = new Bundle();
 				bundle.putString(Const.TITLE,
 						mTitle);
+				bundle.putInt(Const.SEC_NUM,
+						groupPosition + 1);
+				//bundle.putString(Const.CONTENTS, )
 				// After all data has been entered and calculated, go to new
 				// page for results
 				Intent myIntent = new Intent();
@@ -138,46 +141,47 @@ public class MainActivity extends DrawerLayoutActivity {
 		Sec1.add(getString(R.string.t1_5));
 		Sec1.add(getString(R.string.t1_6));
 		Sec1.add(getString(R.string.t1_8));
+		Sec1.add(getString(R.string.t1_9));
 		
 		List<String> Sec2 = new ArrayList<String>();
-		Sec2.add(getString(R.string.t2_10));
-		Sec2.add(getString(R.string.t2_11));
-		Sec2.add(getString(R.string.t2_12));
-		Sec2.add(getString(R.string.t2_13));
-		Sec2.add(getString(R.string.t2_14));
-		Sec2.add(getString(R.string.t2_15));
-		Sec2.add(getString(R.string.t2_16));
+		Sec2.add(getString(R.string.t2_1));
+		Sec2.add(getString(R.string.t2_2));
+		Sec2.add(getString(R.string.t2_3));
+		Sec2.add(getString(R.string.t2_4));
+		Sec2.add(getString(R.string.t2_5));
+		Sec2.add(getString(R.string.t2_6));
+		Sec2.add(getString(R.string.t2_7));
 		
 		List<String> Sec3 = new ArrayList<String>();
-		Sec3.add(getString(R.string.t3_17));
-		Sec3.add(getString(R.string.t3_18));
-		Sec3.add(getString(R.string.t3_19));
-		Sec3.add(getString(R.string.t3_20));
-		Sec3.add(getString(R.string.t3_21));
+		Sec3.add(getString(R.string.t3_1));
+		Sec3.add(getString(R.string.t3_2));
+		Sec3.add(getString(R.string.t3_3));
+		Sec3.add(getString(R.string.t3_4));
+		Sec3.add(getString(R.string.t3_5));
 		
 		List<String> Sec4 = new ArrayList<String>();
-		Sec4.add(getString(R.string.t4_22));
-		Sec4.add(getString(R.string.t4_23));
-		Sec4.add(getString(R.string.t4_24));
-		Sec4.add(getString(R.string.t4_25));
+		Sec4.add(getString(R.string.t4_1));
+		Sec4.add(getString(R.string.t4_2));
+		Sec4.add(getString(R.string.t4_3));
+		Sec4.add(getString(R.string.t4_4));
 		
 		List<String> Sec5 = new ArrayList<String>();
-		Sec5.add(getString(R.string.t5_26));
-		Sec5.add(getString(R.string.t5_27));
-		Sec5.add(getString(R.string.t5_28));
-		Sec5.add(getString(R.string.t5_29));
-		Sec5.add(getString(R.string.t5_30));
-		Sec5.add(getString(R.string.t5_31));
-		Sec5.add(getString(R.string.t5_32));
-		Sec5.add(getString(R.string.t5_33));
+		Sec5.add(getString(R.string.t5_1));
+		Sec5.add(getString(R.string.t5_2));
+		Sec5.add(getString(R.string.t5_3));
+		Sec5.add(getString(R.string.t5_4));
+		Sec5.add(getString(R.string.t5_5));
+		Sec5.add(getString(R.string.t5_6));
+		Sec5.add(getString(R.string.t5_7));
+		Sec5.add(getString(R.string.t5_8));
 
 		List<String> Sec6 = new ArrayList<String>();
-		Sec6.add(getString(R.string.t6_34));
-		Sec6.add(getString(R.string.t6_35));
-		Sec6.add(getString(R.string.t6_36));
+		Sec6.add(getString(R.string.t6_1));
+		Sec6.add(getString(R.string.t6_2));
+		Sec6.add(getString(R.string.t6_3));
 		
 		List<String> Sec7 = new ArrayList<String>();
-		Sec7.add(getString(R.string.t7_37));
+		Sec7.add(getString(R.string.t7_1));
 
 
 		listDataChild.put(listDataHeader.get(0), Sec1);
@@ -193,5 +197,9 @@ public class MainActivity extends DrawerLayoutActivity {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_list_class);
 		mStrTitle = (String) getTitle();
+		listMenu = new ArrayList<String>();
+        listMenu.add(getString(R.string.refer));
+        listMenu.add(getString(R.string.about));
+        listMenu.add(getString(R.string.exit));
 	}
 }

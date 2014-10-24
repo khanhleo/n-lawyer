@@ -21,10 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.lknhac.nlawyer.data.Shakespeare;
+import com.lknhac.nlawyer.util.Const;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -34,6 +37,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -42,6 +46,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DrawerLayoutActivity extends Activity {
     private DrawerLayout mDrawerLayout;
@@ -54,7 +59,8 @@ public class DrawerLayoutActivity extends Activity {
 
     private MenuApdapter adapter;
     
-    private List<String> listMenu;
+    public static List<String> listMenu;
+    public static int SEC_NUM;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +73,10 @@ public class DrawerLayoutActivity extends Activity {
         
        // final ListView listView = (ListView) findViewById(R.id.lvSummary);
        
-        listMenu = new ArrayList<String>();
-        listMenu.add("Setting");
-        listMenu.add("About");
-        listMenu.add("Exit");
+//        listMenu = new ArrayList<String>();
+//        listMenu.add("Setting");
+//        listMenu.add("About");
+//        listMenu.add("Exit");
         
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
        
@@ -104,7 +110,8 @@ public class DrawerLayoutActivity extends Activity {
                 R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close);
     }
     
-    private class MenuApdapter extends BaseAdapter {
+    @SuppressLint("ClickableViewAccessibility")
+	private class MenuApdapter extends BaseAdapter {
 		private Context mContext;
 		private List<String> listMenu = new ArrayList<String>();
 
@@ -131,22 +138,75 @@ public class DrawerLayoutActivity extends Activity {
 		}
 
 		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
+		public View getView(final int position, View convertView, ViewGroup parent) {
 			final String summaryItem = getItem(position);
-			final int check = position;
 			View v = convertView;
 			if (v == null) {
 				v = LayoutInflater.from(mContext).inflate(
 						R.layout.listview_summary_item, null);
 			}
 
-			TextView itemText = (TextView) v.findViewById(R.id.itemText);
-			ImageView itemIcon = (ImageView) v
+			final TextView itemText = (TextView) v.findViewById(R.id.itemText);
+			final ImageView itemIcon = (ImageView) v
 					.findViewById(R.id.itemImage);
 
 			itemText.setText(summaryItem);
-			itemIcon.setImageResource(R.drawable.alert_dialog_icon);
-			
+			if(itemText.getText().toString().equals(getString(R.string.about))){
+				itemIcon.setImageResource(R.drawable.ico_about);
+			}else if(itemText.getText().toString().equals(getString(R.string.exit))){
+				itemIcon.setImageResource(R.drawable.ico_exit);
+			}else if(itemText.getText().toString().equals(getString(R.string.refer))){ 
+				itemIcon.setImageResource(R.drawable.ico_book);
+			}else{
+				if(position==0)
+				itemIcon.setImageResource(R.drawable.ico_sec);
+				else{
+					itemIcon.setVisibility(View.GONE);	
+				}
+			}
+			View itemColor = v.findViewById(R.id.itemSummaryColor);
+//			itemText.setOnTouchListener(new View.OnTouchListener() {
+//				@Override
+//				public boolean onTouch(View v, MotionEvent event) {
+//					Toast.makeText(getApplicationContext(), itemText.getText().toString(), Toast.LENGTH_SHORT).show();
+//					return false;
+//				}
+//			});
+			itemText.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					
+					if(itemText.getText().toString().equals(getString(R.string.about))){
+						Toast.makeText(getApplicationContext(), itemText.getText().toString(), Toast.LENGTH_SHORT).show();
+					}else if(itemText.getText().toString().equals(getString(R.string.exit))){
+						Toast.makeText(getApplicationContext(), itemText.getText().toString(), Toast.LENGTH_SHORT).show();
+					}else if(itemText.getText().toString().equals(getString(R.string.exit))){
+						Toast.makeText(getApplicationContext(), itemText.getText().toString(), Toast.LENGTH_SHORT).show();
+					}
+					else{
+						if(position>0){
+							String mTitle = "t"+ String.valueOf(SEC_NUM) + "_"
+									+ String.valueOf(position)+".htm";
+							Bundle bundle = new Bundle();
+							bundle.putString(Const.TITLE,
+									mTitle);
+							bundle.putInt(Const.SEC_NUM,
+									SEC_NUM);
+							bundle.putString(Const.CONTENTS, itemText.getText().toString());
+							// After all data has been entered and calculated, go to new
+							// page for results
+							Intent myIntent = new Intent();
+							myIntent.putExtras(bundle);
+							myIntent.setClass(getBaseContext(), ContentActivity.class);
+							startActivity(myIntent);
+							Toast.makeText(getApplicationContext(), mTitle, Toast.LENGTH_SHORT).show();
+							finish();
+						}
+					}
+				}
+			});
 
 			return v;
 		}
@@ -196,6 +256,7 @@ public class DrawerLayoutActivity extends Activity {
           //  mContent.setText(Shakespeare.DIALOGUE[position]);
             mActionBar.setTitle(listMenu.get(position));
             mDrawerLayout.closeDrawer(mDrawer);
+            Toast.makeText(getApplicationContext(), "abc", Toast.LENGTH_SHORT).show();
         }
     }
 

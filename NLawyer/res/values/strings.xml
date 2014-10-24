@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">NLawyer</string>
+<!--     <string name="app_name">NLawyer</string> -->
+    <string name="app_name">Luật Dân Sự</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
@@ -12,6 +13,10 @@
     <!-- Description of the icon that closes the navigation drawer, used by accessibility. -->
     <string name="drawer_close">Close navigation drawer</string>
     
+    <!-- Menu -->
+    <string name="about">Thông tin về phần mềm</string>
+    <string name="exit">Thoát</string>
+    <string name="refer">Tham khảo</string>
     <!-- Section -->
     <string name="sec_1">Phần 1-NHỮNG QUI ĐỊNH CHUNG</string>
     <string name="sec_2">Phần 2-TÀI SẢN VÀ QUYỀN SỞ HỮU</string>
@@ -32,38 +37,38 @@
     <string name="t1_8">8- Thời hạn</string>
     <string name="t1_9">9 - Thời hiệu</string>
     
-    <string name="t2_10">10- Quy định chung về tài sản và quyền sở hữu</string>
-    <string name="t2_11">11- Các loại tài sản</string>
-    <string name="t2_12">12- Nội dung quyền sở hữu</string>
-    <string name="t2_13">13- Các hình thức sở hữu</string>
-    <string name="t2_14">14- Xác lập, chấm dứt quyền sở hữu</string>
-    <string name="t2_15">15- Bảo vệ quyền sở hữu</string>
-    <string name="t2_16">16- Những quy định khác về quyền sở hữu</string>
+    <string name="t2_1">10- Quy định chung về tài sản và quyền sở hữu</string>
+    <string name="t2_2">11- Các loại tài sản</string>
+    <string name="t2_3">12- Nội dung quyền sở hữu</string>
+    <string name="t2_4">13- Các hình thức sở hữu</string>
+    <string name="t2_5">14- Xác lập, chấm dứt quyền sở hữu</string>
+    <string name="t2_6">15- Bảo vệ quyền sở hữu</string>
+    <string name="t2_7">16- Những quy định khác về quyền sở hữu</string>
     
-    <string name="t3_17">17-Những quy định chung</string>
-    <string name="t3_18">18-Hợp đồng dân sự thông dụng</string>
-    <string name="t3_19">19-Thực hiện công việc không có ủy quyền</string>
-    <string name="t3_20">20-Nghĩa vụ hoàn trả do chiếm hữu, sử dụng tài sản không có căn cứ pháp luật</string>
-    <string name="t3_21">21-Bồi thường thiệt hại ngoài hợp đồng</string>
+    <string name="t3_1">17-Những quy định chung</string>
+    <string name="t3_2">18-Hợp đồng dân sự thông dụng</string>
+    <string name="t3_3">19-Thực hiện công việc không có ủy quyền</string>
+    <string name="t3_4">20-Nghĩa vụ hoàn trả do chiếm hữu, sử dụng tài sản không có căn cứ pháp luật</string>
+    <string name="t3_5">21-Bồi thường thiệt hại ngoài hợp đồng</string>
     
-    <string name="t4_22">22-Những quy định chung về thừa kế</string>
-    <string name="t4_23">23-Thừa kế theo di chúc</string>
-    <string name="t4_24">24-Thừa kế theo pháp luật</string>
-    <string name="t4_25">25-Thanh toán và phân chia di sản</string>
+    <string name="t4_1">22-Những quy định chung về thừa kế</string>
+    <string name="t4_2">23-Thừa kế theo di chúc</string>
+    <string name="t4_3">24-Thừa kế theo pháp luật</string>
+    <string name="t4_4">25-Thanh toán và phân chia di sản</string>
     
-    <string name="t5_26">26-Những quy định chung về chuyển quyền sử dụng đất</string>
-    <string name="t5_27">27-Hợp đồng chuyển đổi quyền sử dụng đất</string>
-    <string name="t5_28">28-Hợp đồng chuyển nhượng quyền sử dụng đất</string>
-    <string name="t5_29">29-Hợp đồng thuê, thuê lại quyền sử dụng đất</string>
-    <string name="t5_30">30-Hợp đồng thế chấp quyền sử dụng đất</string>
-    <string name="t5_31">31-Hợp đồng tặng cho quyền sử dụng đất</string>
-    <string name="t5_32">32-Hợp đồng góp vốn bằng quyền sử dụng đất</string>
-    <string name="t5_33">33-Thừa kế quyền sử dụng đất</string>
+    <string name="t5_1">26-Những quy định chung về chuyển quyền sử dụng đất</string>
+    <string name="t5_2">27-Hợp đồng chuyển đổi quyền sử dụng đất</string>
+    <string name="t5_3">28-Hợp đồng chuyển nhượng quyền sử dụng đất</string>
+    <string name="t5_4">29-Hợp đồng thuê, thuê lại quyền sử dụng đất</string>
+    <string name="t5_5">30-Hợp đồng thế chấp quyền sử dụng đất</string>
+    <string name="t5_6">31-Hợp đồng tặng cho quyền sử dụng đất</string>
+    <string name="t5_7">32-Hợp đồng góp vốn bằng quyền sử dụng đất</string>
+    <string name="t5_8">33-Thừa kế quyền sử dụng đất</string>
     
-    <string name="t6_34">34-Quyền tác giả và quyền liên quan</string>
-    <string name="t6_35">35-Quyền sở hữu công nghiệp và quyền đối với cây trồng</string>
-    <string name="t6_36">36-Chuyển giao công nghệ</string>
+    <string name="t6_1">34-Quyền tác giả và quyền liên quan</string>
+    <string name="t6_2">35-Quyền sở hữu công nghiệp và quyền đối với cây trồng</string>
+    <string name="t6_3">36-Chuyển giao công nghệ</string>
     
-    <string name="t7_37">37-Quan hệ dân sự có yếu tố nước ngoài</string>
+    <string name="t7_1">37-Quan hệ dân sự có yếu tố nước ngoài</string>
     
 </resources>
