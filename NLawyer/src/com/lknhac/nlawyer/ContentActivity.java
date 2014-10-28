@@ -37,6 +37,7 @@ public class ContentActivity extends DrawerLayoutActivity {
 		mWebView.getSettings().setLoadsImagesAutomatically(true);
 		mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 		mWebView.getSettings().setBuiltInZoomControls(true);
+		mWebView.getSettings().setDisplayZoomControls(false);
 		mWebView.loadUrl(url);
 
 	}
@@ -55,18 +56,20 @@ public class ContentActivity extends DrawerLayoutActivity {
 		setContentView(R.layout.activity_content);
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			mStrTitle = extras.getString(Const.TITLE);
-			SEC_NUM = extras.getInt(Const.SEC_NUM);
+			mStrTitle = extras.getString(Const.CONTENTS);
 			listMenu = new ArrayList<String>();
-			getSection(listMenu, extras.getInt(Const.SEC_NUM));
+			if (extras.getInt(Const.SEC_NUM) != 0) {
+				SEC_NUM = extras.getInt(Const.SEC_NUM);
+				getSection(listMenu, extras.getInt(Const.SEC_NUM));
+			}
 			listMenu.add(getString(R.string.refer));
-	        listMenu.add(getString(R.string.about));
-	        listMenu.add(getString(R.string.exit));
+			listMenu.add(getString(R.string.about));
+			listMenu.add(getString(R.string.exit));
 		}
 	}
 
-	private void getSection(List<String> listMenu, int sec){
-		
+	private void getSection(List<String> listMenu, int sec) {
+
 		switch (sec) {
 		case 1:
 			getListMenu(listMenu, Shakespeare.SEC_1);
@@ -91,12 +94,13 @@ public class ContentActivity extends DrawerLayoutActivity {
 			break;
 		default:
 			break;
-		}	
+		}
 	}
-	private void getListMenu(List<String> listMenu, String[] listSec){
+
+	private void getListMenu(List<String> listMenu, String[] listSec) {
 		for (String item : listSec) {
 			listMenu.add(item);
 		}
 	}
-	
+
 }

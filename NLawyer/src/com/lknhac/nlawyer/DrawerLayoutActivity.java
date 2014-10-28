@@ -179,11 +179,37 @@ public class DrawerLayoutActivity extends Activity {
 					// TODO Auto-generated method stub
 					
 					if(itemText.getText().toString().equals(getString(R.string.about))){
-						Toast.makeText(getApplicationContext(), itemText.getText().toString(), Toast.LENGTH_SHORT).show();
+						String mTitle = "infor.htm";
+						Bundle bundle = new Bundle();
+						bundle.putString(Const.TITLE,
+								mTitle);
+						bundle.putString(Const.CONTENTS,
+								getString(R.string.about));
+						bundle.putInt(Const.SEC_NUM,
+								0);
+						// After all data has been entered and calculated, go to new
+						// page for results
+						Intent myIntent = new Intent();
+						myIntent.putExtras(bundle);
+						myIntent.setClass(getBaseContext(), ContentActivity.class);
+						startActivity(myIntent);
 					}else if(itemText.getText().toString().equals(getString(R.string.exit))){
 						Toast.makeText(getApplicationContext(), itemText.getText().toString(), Toast.LENGTH_SHORT).show();
-					}else if(itemText.getText().toString().equals(getString(R.string.exit))){
-						Toast.makeText(getApplicationContext(), itemText.getText().toString(), Toast.LENGTH_SHORT).show();
+					}else if(itemText.getText().toString().equals(getString(R.string.refer))){
+						String mTitle = "refer.htm";
+						Bundle bundle = new Bundle();
+						bundle.putString(Const.TITLE,
+								mTitle);
+						bundle.putString(Const.CONTENTS,
+								getString(R.string.refer));
+						bundle.putInt(Const.SEC_NUM,
+								0);
+						// After all data has been entered and calculated, go to new
+						// page for results
+						Intent myIntent = new Intent();
+						myIntent.putExtras(bundle);
+						myIntent.setClass(getBaseContext(), ContentActivity.class);
+						startActivity(myIntent);
 					}
 					else{
 						if(position>0){
@@ -194,7 +220,7 @@ public class DrawerLayoutActivity extends Activity {
 									mTitle);
 							bundle.putInt(Const.SEC_NUM,
 									SEC_NUM);
-							bundle.putString(Const.CONTENTS, itemText.getText().toString());
+							bundle.putString(Const.CONTENTS,  getString(R.string.chap)+ itemText.getText().toString());
 							// After all data has been entered and calculated, go to new
 							// page for results
 							Intent myIntent = new Intent();

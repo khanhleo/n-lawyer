@@ -26,49 +26,96 @@
     <string name="sec_6">Phần 6-QUYỀN SỞ HỮU TRÍ TUỆ VÀ CHUYỂN GIAO CÔNG NGHỆ</string>
     <string name="sec_7">Phần 7-QUAN HỆ DÂN SỰ CÓ YẾU TỐ NƯỚC NGOÀI</string>
     
+    <string name="chap">Chương: </string>
+    <string name="sec">Phần: </string>
     <!-- List title -->
-    <string name="t1_1">1-Nhiệm vụ và hiệu lực của BLDS</string>
-    <string name="t1_2">2-Những nguyên tắc cơ bản và căn cứ xác lập quyền, nghĩa vụ dân sự</string>
-    <string name="t1_3">3- Cá nhân</string>
-    <string name="t1_4">4-Pháp nhân</string>
-    <string name="t1_5">5-Hộ gia đình, tổ hợp tác</string>
-    <string name="t1_6">6- Giao dịch dân sự</string> 
-    <string name="t1_7">7- Đại diện</string>
-    <string name="t1_8">8- Thời hạn</string>
-    <string name="t1_9">9 - Thời hiệu</string>
+    <string name="t1_1">Nhiệm vụ và hiệu lực của BLDS</string>
+    <string name="t1_2">Những nguyên tắc cơ bản và căn cứ xác lập quyền, nghĩa vụ dân sự</string>
+    <string name="t1_3">Cá nhân</string>
+    <string name="t1_4">Pháp nhân</string>
+    <string name="t1_5">Hộ gia đình, tổ hợp tác</string>
+    <string name="t1_6">Giao dịch dân sự</string> 
+    <string name="t1_7">Đại diện</string>
+    <string name="t1_8">Thời hạn</string>
+    <string name="t1_9">Thời hiệu</string>
     
-    <string name="t2_1">10- Quy định chung về tài sản và quyền sở hữu</string>
-    <string name="t2_2">11- Các loại tài sản</string>
-    <string name="t2_3">12- Nội dung quyền sở hữu</string>
-    <string name="t2_4">13- Các hình thức sở hữu</string>
-    <string name="t2_5">14- Xác lập, chấm dứt quyền sở hữu</string>
-    <string name="t2_6">15- Bảo vệ quyền sở hữu</string>
-    <string name="t2_7">16- Những quy định khác về quyền sở hữu</string>
+    <string name="t2_1">Quy định chung về tài sản và quyền sở hữu</string>
+    <string name="t2_2">Các loại tài sản</string>
+    <string name="t2_3">Nội dung quyền sở hữu</string>
+    <string name="t2_4">Các hình thức sở hữu</string>
+    <string name="t2_5">Xác lập, chấm dứt quyền sở hữu</string>
+    <string name="t2_6">Bảo vệ quyền sở hữu</string>
+    <string name="t2_7">Những quy định khác về quyền sở hữu</string>
     
-    <string name="t3_1">17-Những quy định chung</string>
-    <string name="t3_2">18-Hợp đồng dân sự thông dụng</string>
-    <string name="t3_3">19-Thực hiện công việc không có ủy quyền</string>
-    <string name="t3_4">20-Nghĩa vụ hoàn trả do chiếm hữu, sử dụng tài sản không có căn cứ pháp luật</string>
-    <string name="t3_5">21-Bồi thường thiệt hại ngoài hợp đồng</string>
+    <string name="t3_1">Những quy định chung</string>
+    <string name="t3_2">Hợp đồng dân sự thông dụng</string>
+    <string name="t3_3">Thực hiện công việc không có ủy quyền</string>
+    <string name="t3_4">Nghĩa vụ hoàn trả do chiếm hữu, sử dụng tài sản không có căn cứ pháp luật</string>
+    <string name="t3_5">Bồi thường thiệt hại ngoài hợp đồng</string>
     
-    <string name="t4_1">22-Những quy định chung về thừa kế</string>
-    <string name="t4_2">23-Thừa kế theo di chúc</string>
-    <string name="t4_3">24-Thừa kế theo pháp luật</string>
-    <string name="t4_4">25-Thanh toán và phân chia di sản</string>
+    <string name="t4_1">Những quy định chung về thừa kế</string>
+    <string name="t4_2">Thừa kế theo di chúc</string>
+    <string name="t4_3">Thừa kế theo pháp luật</string>
+    <string name="t4_4">Thanh toán và phân chia di sản</string>
     
-    <string name="t5_1">26-Những quy định chung về chuyển quyền sử dụng đất</string>
-    <string name="t5_2">27-Hợp đồng chuyển đổi quyền sử dụng đất</string>
-    <string name="t5_3">28-Hợp đồng chuyển nhượng quyền sử dụng đất</string>
-    <string name="t5_4">29-Hợp đồng thuê, thuê lại quyền sử dụng đất</string>
-    <string name="t5_5">30-Hợp đồng thế chấp quyền sử dụng đất</string>
-    <string name="t5_6">31-Hợp đồng tặng cho quyền sử dụng đất</string>
-    <string name="t5_7">32-Hợp đồng góp vốn bằng quyền sử dụng đất</string>
-    <string name="t5_8">33-Thừa kế quyền sử dụng đất</string>
+    <string name="t5_1">Những quy định chung về chuyển quyền sử dụng đất</string>
+    <string name="t5_2">Hợp đồng chuyển đổi quyền sử dụng đất</string>
+    <string name="t5_3">Hợp đồng chuyển nhượng quyền sử dụng đất</string>
+    <string name="t5_4">Hợp đồng thuê, thuê lại quyền sử dụng đất</string>
+    <string name="t5_5">Hợp đồng thế chấp quyền sử dụng đất</string>
+    <string name="t5_6">Hợp đồng tặng cho quyền sử dụng đất</string>
+    <string name="t5_7">Hợp đồng góp vốn bằng quyền sử dụng đất</string>
+    <string name="t5_8">Thừa kế quyền sử dụng đất</string>
     
-    <string name="t6_1">34-Quyền tác giả và quyền liên quan</string>
-    <string name="t6_2">35-Quyền sở hữu công nghiệp và quyền đối với cây trồng</string>
-    <string name="t6_3">36-Chuyển giao công nghệ</string>
+    <string name="t6_1">Quyền tác giả và quyền liên quan</string>
+    <string name="t6_2">Quyền sở hữu công nghiệp và quyền đối với cây trồng</string>
+    <string name="t6_3">Chuyển giao công nghệ</string>
     
-    <string name="t7_1">37-Quan hệ dân sự có yếu tố nước ngoài</string>
+    <string name="t7_1">Quan hệ dân sự có yếu tố nước ngoài</string>
+    
+    <!-- List Chap Tag title -->
+    <string name="c1_1">1</string>
+    <string name="c1_2">2</string>
+    <string name="c1_3">3</string>
+    <string name="c1_4">4</string>
+    <string name="c1_5">5</string>
+    <string name="c1_6">6</string> 
+    <string name="c1_7">7</string>
+    <string name="c1_8">8</string>
+    <string name="c1_9">9</string>
+    
+    <string name="c2_1">10</string>
+    <string name="c2_2">11</string>
+    <string name="c2_3">12</string>
+    <string name="c2_4">13</string>
+    <string name="c2_5">14</string>
+    <string name="c2_6">15</string>
+    <string name="c2_7">16</string>
+    
+    <string name="c3_1">17</string>
+    <string name="c3_2">18</string>
+    <string name="c3_3">19</string>
+    <string name="c3_4">20</string>
+    <string name="c3_5">21</string>
+    
+    <string name="c4_1">22</string>
+    <string name="c4_2">23</string>
+    <string name="c4_3">24</string>
+    <string name="c4_4">25</string>
+    
+    <string name="c5_1">26</string>
+    <string name="c5_2">27</string>
+    <string name="c5_3">28</string>
+    <string name="c5_4">29</string>
+    <string name="c5_5">30</string>
+    <string name="c5_6">31</string>
+    <string name="c5_7">32</string>
+    <string name="c5_8">33</string>
+    
+    <string name="c6_1">34</string>
+    <string name="c6_2">35</string>
+    <string name="c6_3">36</string>
+    
+    <string name="c7_1">37</string>
     
 </resources>

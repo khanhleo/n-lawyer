@@ -5,9 +5,13 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
@@ -19,31 +23,32 @@ import com.lknhac.nlawyer.util.Const;
 
 public class MainActivity extends DrawerLayoutActivity {
 
-//	@Override
-//	protected void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		//setContentView(R.layout.activity_main);
-//		init();
-//	}
+	// @Override
+	// protected void onCreate(Bundle savedInstanceState) {
+	// super.onCreate(savedInstanceState);
+	// //setContentView(R.layout.activity_main);
+	// init();
+	// }
 
 	ExpandableListAdapter listAdapter;
 	ExpandableListView expListView;
 	List<String> listDataHeader;
+	List<String> listDataHeader2;
 	HashMap<String, List<String>> listDataChild;
+	HashMap<String, List<String>> listDataChildChapTag;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.activity_list_class);
+		// setContentView(R.layout.activity_list_class);
 
 		// get the listview
 		expListView = (ExpandableListView) findViewById(R.id.lvExp);
-
 		// preparing list data
 		prepareListData();
 
 		listAdapter = new ExpandableListAdapter(this, listDataHeader,
-				listDataChild);
+				listDataChild, listDataChildChapTag);
 
 		// setting list adapter
 		expListView.setAdapter(listAdapter);
@@ -57,6 +62,22 @@ public class MainActivity extends DrawerLayoutActivity {
 				// Toast.makeText(getApplicationContext(),
 				// "Group Clicked " + listDataHeader.get(groupPosition),
 				// Toast.LENGTH_SHORT).show();
+				if(groupPosition==6){
+					String mTitle = "t" + String.valueOf(groupPosition + 1) + "_1.htm";
+					String mContent = getString(R.string.sec)+"7";
+					// String mContents = listDataChild.get(key)
+					Bundle bundle = new Bundle();
+					bundle.putString(Const.TITLE, mTitle);
+					bundle.putString(Const.CONTENTS, mContent);
+					bundle.putInt(Const.SEC_NUM, groupPosition + 1);
+					// bundle.putString(Const.CONTENTS, )
+					// After all data has been entered and calculated, go to new
+					// page for results
+					Intent myIntent = new Intent();
+					myIntent.putExtras(bundle);
+					myIntent.setClass(getBaseContext(), ContentActivity.class);
+					startActivity(myIntent);
+				}
 				return false;
 			}
 		});
@@ -69,6 +90,8 @@ public class MainActivity extends DrawerLayoutActivity {
 				// Toast.makeText(getApplicationContext(),
 				// listDataHeader.get(groupPosition) + " Expanded",
 				// Toast.LENGTH_SHORT).show();
+//				ImageView img = (ImageView) findViewById(R.id.imgArrow);
+//				img.setBackgroundResource(R.drawable.ico_up);
 			}
 		});
 
@@ -91,37 +114,39 @@ public class MainActivity extends DrawerLayoutActivity {
 			public boolean onChildClick(ExpandableListView parent, View v,
 					int groupPosition, int childPosition, long id) {
 				// TODO Auto-generated method stub
-				//String mSection= String.valueOf(groupPosition + 1);
-				String mTitle = "t"+ String.valueOf(groupPosition + 1) + "_"
-						+ String.valueOf(childPosition+1)+".htm";
-				//String mContents = listDataChild.get(key)
+				// String mSection= String.valueOf(groupPosition + 1);
+				String mTitle = "t" + String.valueOf(groupPosition + 1) + "_"
+						+ String.valueOf(childPosition + 1) + ".htm";
+				String mContent = getString(R.string.chap)+ listDataChildChapTag.get(listDataHeader.get(groupPosition))
+				.get(childPosition);
+				// String mContents = listDataChild.get(key)
 				Bundle bundle = new Bundle();
-				bundle.putString(Const.TITLE,
-						mTitle);
-				bundle.putInt(Const.SEC_NUM,
-						groupPosition + 1);
-				//bundle.putString(Const.CONTENTS, )
+				bundle.putString(Const.TITLE, mTitle);
+				bundle.putString(Const.CONTENTS, mContent);
+				bundle.putInt(Const.SEC_NUM, groupPosition + 1);
+				// bundle.putString(Const.CONTENTS, )
 				// After all data has been entered and calculated, go to new
 				// page for results
 				Intent myIntent = new Intent();
 				myIntent.putExtras(bundle);
 				myIntent.setClass(getBaseContext(), ContentActivity.class);
 				startActivity(myIntent);
-				
-				Toast.makeText(getApplicationContext(), mTitle, Toast.LENGTH_SHORT).show();
+
+				Toast.makeText(getApplicationContext(), mTitle,
+						Toast.LENGTH_SHORT).show();
 				// Add the bundle into myIntent for referencing variables
-				
+
 				return false;
 			}
 		});
 	}
-
 	/*
 	 * Preparing the list data
 	 */
 	private void prepareListData() {
 		listDataHeader = new ArrayList<String>();
 		listDataChild = new HashMap<String, List<String>>();
+		listDataChildChapTag = new HashMap<String, List<String>>();
 
 		// Adding header data
 		listDataHeader.add(getString(R.string.sec_1));
@@ -131,7 +156,6 @@ public class MainActivity extends DrawerLayoutActivity {
 		listDataHeader.add(getString(R.string.sec_5));
 		listDataHeader.add(getString(R.string.sec_6));
 		listDataHeader.add(getString(R.string.sec_7));
-		
 
 		// Adding child data
 		List<String> Sec1 = new ArrayList<String>();
@@ -142,7 +166,7 @@ public class MainActivity extends DrawerLayoutActivity {
 		Sec1.add(getString(R.string.t1_6));
 		Sec1.add(getString(R.string.t1_8));
 		Sec1.add(getString(R.string.t1_9));
-		
+
 		List<String> Sec2 = new ArrayList<String>();
 		Sec2.add(getString(R.string.t2_1));
 		Sec2.add(getString(R.string.t2_2));
@@ -151,20 +175,20 @@ public class MainActivity extends DrawerLayoutActivity {
 		Sec2.add(getString(R.string.t2_5));
 		Sec2.add(getString(R.string.t2_6));
 		Sec2.add(getString(R.string.t2_7));
-		
+
 		List<String> Sec3 = new ArrayList<String>();
 		Sec3.add(getString(R.string.t3_1));
 		Sec3.add(getString(R.string.t3_2));
 		Sec3.add(getString(R.string.t3_3));
 		Sec3.add(getString(R.string.t3_4));
 		Sec3.add(getString(R.string.t3_5));
-		
+
 		List<String> Sec4 = new ArrayList<String>();
 		Sec4.add(getString(R.string.t4_1));
 		Sec4.add(getString(R.string.t4_2));
 		Sec4.add(getString(R.string.t4_3));
 		Sec4.add(getString(R.string.t4_4));
-		
+
 		List<String> Sec5 = new ArrayList<String>();
 		Sec5.add(getString(R.string.t5_1));
 		Sec5.add(getString(R.string.t5_2));
@@ -179,10 +203,59 @@ public class MainActivity extends DrawerLayoutActivity {
 		Sec6.add(getString(R.string.t6_1));
 		Sec6.add(getString(R.string.t6_2));
 		Sec6.add(getString(R.string.t6_3));
-		
-		List<String> Sec7 = new ArrayList<String>();
-		Sec7.add(getString(R.string.t7_1));
 
+		List<String> Sec7 = new ArrayList<String>();
+//		Sec7.add(getString(R.string.t7_1));
+
+		// Adding child chap tag data
+		List<String> C1 = new ArrayList<String>();
+		C1.add(getString(R.string.c1_1));
+		C1.add(getString(R.string.c1_2));
+		C1.add(getString(R.string.c1_3));
+		C1.add(getString(R.string.c1_5));
+		C1.add(getString(R.string.c1_6));
+		C1.add(getString(R.string.c1_8));
+		C1.add(getString(R.string.c1_9));
+
+		List<String> C2 = new ArrayList<String>();
+		C2.add(getString(R.string.c2_1));
+		C2.add(getString(R.string.c2_2));
+		C2.add(getString(R.string.c2_3));
+		C2.add(getString(R.string.c2_4));
+		C2.add(getString(R.string.c2_5));
+		C2.add(getString(R.string.c2_6));
+		C2.add(getString(R.string.c2_7));
+
+		List<String> C3 = new ArrayList<String>();
+		C3.add(getString(R.string.c3_1));
+		C3.add(getString(R.string.c3_2));
+		C3.add(getString(R.string.c3_3));
+		C3.add(getString(R.string.c3_4));
+		C3.add(getString(R.string.c3_5));
+
+		List<String> C4 = new ArrayList<String>();
+		C4.add(getString(R.string.c4_1));
+		C4.add(getString(R.string.c4_2));
+		C4.add(getString(R.string.c4_3));
+		C4.add(getString(R.string.c4_4));
+
+		List<String> C5 = new ArrayList<String>();
+		C5.add(getString(R.string.c5_1));
+		C5.add(getString(R.string.c5_2));
+		C5.add(getString(R.string.c5_3));
+		C5.add(getString(R.string.c5_4));
+		C5.add(getString(R.string.c5_5));
+		C5.add(getString(R.string.c5_6));
+		C5.add(getString(R.string.c5_7));
+		C5.add(getString(R.string.c5_8));
+
+		List<String> C6 = new ArrayList<String>();
+		C6.add(getString(R.string.c6_1));
+		C6.add(getString(R.string.c6_2));
+		C6.add(getString(R.string.c6_3));
+
+		List<String> C7 = new ArrayList<String>();
+//		C7.add(getString(R.string.c7_1));
 
 		listDataChild.put(listDataHeader.get(0), Sec1);
 		listDataChild.put(listDataHeader.get(1), Sec2); // Header, Child data
@@ -191,15 +264,24 @@ public class MainActivity extends DrawerLayoutActivity {
 		listDataChild.put(listDataHeader.get(4), Sec5);
 		listDataChild.put(listDataHeader.get(5), Sec6);
 		listDataChild.put(listDataHeader.get(6), Sec7);
+
+		listDataChildChapTag.put(listDataHeader.get(0), C1);
+		listDataChildChapTag.put(listDataHeader.get(1), C2);
+		listDataChildChapTag.put(listDataHeader.get(2), C3);
+		listDataChildChapTag.put(listDataHeader.get(3), C4);
+		listDataChildChapTag.put(listDataHeader.get(4), C5);
+		listDataChildChapTag.put(listDataHeader.get(5), C6);
+		listDataChildChapTag.put(listDataHeader.get(6), C7);
 	}
+
 	@Override
 	protected void setupView() {
 		// TODO Auto-generated method stub
 		setContentView(R.layout.activity_list_class);
 		mStrTitle = (String) getTitle();
 		listMenu = new ArrayList<String>();
-        listMenu.add(getString(R.string.refer));
-        listMenu.add(getString(R.string.about));
-        listMenu.add(getString(R.string.exit));
+		listMenu.add(getString(R.string.refer));
+		listMenu.add(getString(R.string.about));
+		listMenu.add(getString(R.string.exit));
 	}
 }

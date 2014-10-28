@@ -26,4 +26,7 @@
     <color name="color4">#fff4b400</color>
     <color name="dark">#393636</color>
     <color name="white">#ffffff</color>
+    <color name="green">#25369c</color>
+    <color name="light_green">#48a6e8</color>
+    <color name="grown">#6e3e17</color>
 </resources>

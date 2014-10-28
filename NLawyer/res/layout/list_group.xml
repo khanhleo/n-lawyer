@@ -2,17 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:padding="8dp" 
-    android:background="#000000">
+    android:background="@color/grown">
 
+<!--     <FrameLayout  -->
+<!--         android:layout_width="wrap_content" -->
+<!--         android:layout_height="fill_parent"> -->
+<!--         <ImageView  -->
+<!--             android:id="@+id/imgArrow" -->
+<!--             android:layout_width="wrap_content" -->
+<!--             android:layout_height="wrap_content" -->
+<!--             android:layout_gravity="center_vertical" -->
+<!--             android:background="@drawable/ico_down"/> -->
+<!--     </FrameLayout> -->
 
     <TextView
         android:id="@+id/lblListHeader"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
         android:textSize="17dp"
-        android:textColor="#f9f93d" />
+        android:paddingLeft="25dp"
+        android:textStyle="bold"
+        android:text="abcfsdfsdfsdfsdfsdfsdfsdfsdffsdfdsfsdf"
+        android:textColor="@color/white"
+         />
 
 </LinearLayout>
