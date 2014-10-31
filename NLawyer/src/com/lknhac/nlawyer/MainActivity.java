@@ -4,24 +4,28 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.R.bool;
 import android.content.Intent;
-import android.graphics.Typeface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.lknhac.nlawyer.adapter.ExpandableListAdapter;
+import com.lknhac.nlawyer.rate.RateMeMaybe;
+import com.lknhac.nlawyer.rate.RateMeMaybe.OnRMMUserChoiceListener;
 import com.lknhac.nlawyer.util.Const;
 
-public class MainActivity extends DrawerLayoutActivity {
+public class MainActivity extends DrawerLayoutActivity implements OnRMMUserChoiceListener {
 
 	// @Override
 	// protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,11 @@ public class MainActivity extends DrawerLayoutActivity {
 	// //setContentView(R.layout.activity_main);
 	// init();
 	// }
+	/** The view to show the ad. */
+	private AdView adView;
 
+	/* Your ad unit id. Replace with your actual ad unit id. */
+//	private static final String AD_UNIT_ID = "ca-app-pub-5056196661864424/7874061193";
 	ExpandableListAdapter listAdapter;
 	ExpandableListView expListView;
 	List<String> listDataHeader;
@@ -41,6 +49,41 @@ public class MainActivity extends DrawerLayoutActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// setContentView(R.layout.activity_list_class);
+
+
+		
+		// check connection
+		if (Const.isNetworkAvailable(getApplicationContext())) {
+			
+			// rate app
+			SharedPreferences prefs = getSharedPreferences(Const.NAME, MODE_PRIVATE); 
+			boolean restoredText = prefs.getBoolean(Const.DONT_SHOW_AGAIN, false);
+			if (!restoredText) {
+				rateApp();
+			}
+			
+			
+			// Create an ad.
+			adView = new AdView(this);
+			adView.setAdSize(AdSize.BANNER);
+			adView.setAdUnitId(Const.AD_UNIT_ID);
+
+			// Add the AdView to the view hierarchy. The view will have no size
+			// until the ad is loaded.
+			LinearLayout layout = (LinearLayout) findViewById(R.id.llAdmobs);
+			layout.addView(adView);
+
+			// Create an ad request. Check logcat output for the hashed device
+			// ID to
+			// get test ads on a physical device.
+			AdRequest adRequest = new AdRequest.Builder().build();
+
+			// Start loading the ad in the background.
+			adView.loadAd(adRequest);
+		}else{
+			LinearLayout layout = (LinearLayout) findViewById(R.id.llBottom);
+			layout.setVisibility(View.GONE);
+		}
 
 		// get the listview
 		expListView = (ExpandableListView) findViewById(R.id.lvExp);
@@ -62,9 +105,10 @@ public class MainActivity extends DrawerLayoutActivity {
 				// Toast.makeText(getApplicationContext(),
 				// "Group Clicked " + listDataHeader.get(groupPosition),
 				// Toast.LENGTH_SHORT).show();
-				if(groupPosition==6){
-					String mTitle = "t" + String.valueOf(groupPosition + 1) + "_1.htm";
-					String mContent = getString(R.string.sec)+"7";
+				if (groupPosition == 6) {
+					String mTitle = "t" + String.valueOf(groupPosition + 1)
+							+ "_1.htm";
+					String mContent = getString(R.string.sec) + "7";
 					// String mContents = listDataChild.get(key)
 					Bundle bundle = new Bundle();
 					bundle.putString(Const.TITLE, mTitle);
@@ -90,8 +134,8 @@ public class MainActivity extends DrawerLayoutActivity {
 				// Toast.makeText(getApplicationContext(),
 				// listDataHeader.get(groupPosition) + " Expanded",
 				// Toast.LENGTH_SHORT).show();
-//				ImageView img = (ImageView) findViewById(R.id.imgArrow);
-//				img.setBackgroundResource(R.drawable.ico_up);
+				// ImageView img = (ImageView) findViewById(R.id.imgArrow);
+				// img.setBackgroundResource(R.drawable.ico_up);
 			}
 		});
 
@@ -117,8 +161,10 @@ public class MainActivity extends DrawerLayoutActivity {
 				// String mSection= String.valueOf(groupPosition + 1);
 				String mTitle = "t" + String.valueOf(groupPosition + 1) + "_"
 						+ String.valueOf(childPosition + 1) + ".htm";
-				String mContent = getString(R.string.chap)+ listDataChildChapTag.get(listDataHeader.get(groupPosition))
-				.get(childPosition);
+				String mContent = getString(R.string.chap)
+						+ listDataChildChapTag.get(
+								listDataHeader.get(groupPosition)).get(
+								childPosition);
 				// String mContents = listDataChild.get(key)
 				Bundle bundle = new Bundle();
 				bundle.putString(Const.TITLE, mTitle);
@@ -132,14 +178,54 @@ public class MainActivity extends DrawerLayoutActivity {
 				myIntent.setClass(getBaseContext(), ContentActivity.class);
 				startActivity(myIntent);
 
-				Toast.makeText(getApplicationContext(), mTitle,
-						Toast.LENGTH_SHORT).show();
+//				Toast.makeText(getApplicationContext(), mTitle,
+//						Toast.LENGTH_SHORT).show();
 				// Add the bundle into myIntent for referencing variables
 
 				return false;
 			}
 		});
 	}
+
+	private void rateApp(){
+		RateMeMaybe.resetData(this);
+		RateMeMaybe rmm = new RateMeMaybe(this);
+		rmm.setPromptMinimums(0, 0, 0, 0);
+		rmm.setRunWithoutPlayStore(true);
+		rmm.setAdditionalListener(this);
+		rmm.setDialogMessage(getString(R.string.rate));
+		rmm.setDialogTitle(getString(R.string.title_rate_dialog));
+		rmm.setPositiveBtn(getString(R.string.positive_button));
+		rmm.setNegativeBtn(getString(R.string.negative_button));
+		rmm.setNeutralBtn(getString(R.string.neutral_button));
+		rmm.run();
+	}
+	@Override
+	public void onResume() {
+		super.onResume();
+		if (adView != null) {
+			adView.resume();
+		}
+	}
+
+	@Override
+	public void onPause() {
+		if (adView != null) {
+			adView.pause();
+		}
+		super.onPause();
+	}
+
+	/** Called before the activity is destroyed. */
+	@Override
+	public void onDestroy() {
+		// Destroy the AdView.
+		if (adView != null) {
+			adView.destroy();
+		}
+		super.onDestroy();
+	}
+
 	/*
 	 * Preparing the list data
 	 */
@@ -205,7 +291,7 @@ public class MainActivity extends DrawerLayoutActivity {
 		Sec6.add(getString(R.string.t6_3));
 
 		List<String> Sec7 = new ArrayList<String>();
-//		Sec7.add(getString(R.string.t7_1));
+		// Sec7.add(getString(R.string.t7_1));
 
 		// Adding child chap tag data
 		List<String> C1 = new ArrayList<String>();
@@ -255,7 +341,7 @@ public class MainActivity extends DrawerLayoutActivity {
 		C6.add(getString(R.string.c6_3));
 
 		List<String> C7 = new ArrayList<String>();
-//		C7.add(getString(R.string.c7_1));
+		// C7.add(getString(R.string.c7_1));
 
 		listDataChild.put(listDataHeader.get(0), Sec1);
 		listDataChild.put(listDataHeader.get(1), Sec2); // Header, Child data
@@ -282,6 +368,32 @@ public class MainActivity extends DrawerLayoutActivity {
 		listMenu = new ArrayList<String>();
 		listMenu.add(getString(R.string.refer));
 		listMenu.add(getString(R.string.about));
+		listMenu.add(getString(R.string.rate_app));
+		listMenu.add(getString(R.string.share_app));
 		listMenu.add(getString(R.string.exit));
+	}
+
+	@Override
+	void searchContents() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void handlePositive() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handleNeutral() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void handleNegative() {
+		// TODO Auto-generated method stub
+		
 	}
 }
