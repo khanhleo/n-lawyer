@@ -248,8 +248,10 @@ public class MainActivity extends DrawerLayoutActivity implements OnRMMUserChoic
 		Sec1.add(getString(R.string.t1_1));
 		Sec1.add(getString(R.string.t1_2));
 		Sec1.add(getString(R.string.t1_3));
+		Sec1.add(getString(R.string.t1_4));
 		Sec1.add(getString(R.string.t1_5));
 		Sec1.add(getString(R.string.t1_6));
+		Sec1.add(getString(R.string.t1_7));
 		Sec1.add(getString(R.string.t1_8));
 		Sec1.add(getString(R.string.t1_9));
 
@@ -298,8 +300,10 @@ public class MainActivity extends DrawerLayoutActivity implements OnRMMUserChoic
 		C1.add(getString(R.string.c1_1));
 		C1.add(getString(R.string.c1_2));
 		C1.add(getString(R.string.c1_3));
+		C1.add(getString(R.string.c1_4));
 		C1.add(getString(R.string.c1_5));
 		C1.add(getString(R.string.c1_6));
+		C1.add(getString(R.string.c1_7));
 		C1.add(getString(R.string.c1_8));
 		C1.add(getString(R.string.c1_9));
 

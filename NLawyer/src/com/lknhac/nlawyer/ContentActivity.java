@@ -31,7 +31,7 @@ import android.widget.LinearLayout;
 public class ContentActivity extends DrawerLayoutActivity {
 	private WebView mWebView;
 	private ImageView itemUpToTop;
-	public static final int[] SEC_COUNT = { 9, 7, 5, 4, 8, 3, 1 };
+	//public static final int[] SEC_COUNT = { 9, 7, 5, 4, 8, 3, 1 };
 	/** The view to show the ad. */
 	private AdView adView;
 
